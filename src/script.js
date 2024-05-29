@@ -24,11 +24,9 @@ const scene = new THREE.Scene();
 debugObject.color = "#a778d8";
 
 const geometry = new THREE.BoxGeometry(1, 1, 1, 2, 2, 2);
-<<<<<<< HEAD
+
 const material = new THREE.MeshBasicMaterial({ color: debugObject.color, wireframe: true });
-=======
-const material = new THREE.MeshBasicMaterial({ color: debugObject.color });
->>>>>>> 414ef9731d8fd3bed9584461eb8826be814a5ebb
+
 const mesh = new THREE.Mesh(geometry, material);
 scene.add(mesh);
 
@@ -46,7 +44,6 @@ debugObject.spin = () => {
     gsap.to(mesh.rotation, { y: mesh.rotation.y + Math.PI * 2 })
 }
 gui.add(debugObject, 'spin')
-<<<<<<< HEAD
 
 debugObject.subdivision = 2
 gui
@@ -55,13 +52,12 @@ gui
     .max(20)
     .step(1)
     .onFinishChange(() => {
+        mesh.geometry.dispose()
         mesh.geometry = new THREE.BoxGeometry(
             1, 1, 1,
             debugObject.subdivision, debugObject.subdivision, debugObject.subdivision
         )
     })
-=======
->>>>>>> 414ef9731d8fd3bed9584461eb8826be814a5ebb
 /**
  * Sizes
  */
